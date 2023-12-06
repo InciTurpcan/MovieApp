@@ -17,6 +17,8 @@ public interface IMovieService
     Response<MovieDetailDto> GetByDetailId(Guid Id);
 
     Response<List<MovieDetailDto>> GetAllDetails();
+    Response<List<MovieDetailDto>> GetDetailsByCategoryName(string categoryName);
+    Response<List<MovieDetailDto>> GetDetailsByPlatformName(string platformName);
     Response<List<MovieDetailDto>> GetAllDetailsByPlatformId(int platformId);
     Response<List<MovieDetailDto>> GetAllDetailsByCategoryId(int categoryId);
 }

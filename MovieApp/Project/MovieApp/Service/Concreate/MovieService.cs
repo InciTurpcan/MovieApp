@@ -183,6 +183,52 @@ public class MovieService : IMovieService
         }
     }
 
+    public Response<List<MovieDetailDto>> GetDetailsByCategoryName(string categoryName)
+    {
+        try
+        {
+            var details = _movieRepository.GetDeatailsByCategoryName(categoryName);
+            return new Response<List<MovieDetailDto>>()
+            {
+                Data = details,
+                StatusCode = System.Net.HttpStatusCode.OK
+            };
+        
+        }
+        catch (BusinessException ex)
+        {
+
+            return new Response<List<MovieDetailDto>>()
+            {
+                Message = ex.Message,
+                StatusCode = System.Net.HttpStatusCode.BadRequest
+            };
+        }
+                    
+    }
+
+    public Response<List<MovieDetailDto>> GetDetailsByPlatformName(string platformName)
+    {
+        try
+        {
+            var details = _movieRepository.GetDeatailsByPlatformName(platformName);
+            return new Response<List<MovieDetailDto>>()
+            {
+                Data = details,
+                StatusCode = System.Net.HttpStatusCode.OK
+            };
+        }
+        catch (BusinessException ex)
+        {
+
+            return new Response<List<MovieDetailDto>>()
+            {
+                Message = ex.Message,
+                StatusCode = System.Net.HttpStatusCode.BadRequest
+            };
+        }
+    }
+
     public Response<MovieResponseDto> Update(MovieUpdateRequest request)
     {
         try

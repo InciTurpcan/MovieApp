@@ -11,6 +11,5 @@ public interface ICategoryService
     Response<CategoryResponseDto> Delete(int id);
 
     Response<CategoryResponseDto> GetById(int id);
-
     Response<List<CategoryResponseDto>> GetAll();
 }
