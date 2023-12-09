@@ -84,6 +84,20 @@ namespace WebAPI.Controllers
             var result = _movieService.GetAllDetailsByPlatformId(platformId);
             return ActionResultInstance(result);
         }
+
+        [HttpGet("getdetailsbycategoryname")]
+        public IActionResult GetDetailsByCategoryName([FromQuery] string categoryName)
+        {
+            var result = _movieService.GetDetailsByCategoryName(categoryName);
+            return ActionResultInstance(result);
+        }
+
+        [HttpGet("getdetailsbyplatformname")]
+        public IActionResult GetDetailsByPlatformName([FromQuery] string platformName)
+        {
+            var result = _movieService.GetDetailsByPlatformName(platformName);
+            return ActionResultInstance(result);
+        }
     }
 }
 

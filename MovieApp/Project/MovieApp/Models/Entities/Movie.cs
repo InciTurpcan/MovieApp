@@ -10,6 +10,8 @@ public class Movie : Entity<Guid>
     public Platform Platform { get; set; }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
+    public string CategoryName => this.Category.Name;
+   
 
 
 }

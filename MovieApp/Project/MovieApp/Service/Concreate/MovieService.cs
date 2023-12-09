@@ -187,10 +187,12 @@ public class MovieService : IMovieService
     {
         try
         {
-            var details = _movieRepository.GetDeatailsByCategoryName(categoryName);
+            var details = _movieRepository.GetDetailsByCategoryName(categoryName);
+          
             return new Response<List<MovieDetailDto>>()
             {
                 Data = details,
+                Message = $"'{categoryName}' kategori arama sonucunda {details.Count} adet film bulundu.",
                 StatusCode = System.Net.HttpStatusCode.OK
             };
         
@@ -211,7 +213,7 @@ public class MovieService : IMovieService
     {
         try
         {
-            var details = _movieRepository.GetDeatailsByPlatformName(platformName);
+            var details = _movieRepository.GetDetailsByPlatformName(platformName);
             return new Response<List<MovieDetailDto>>()
             {
                 Data = details,
